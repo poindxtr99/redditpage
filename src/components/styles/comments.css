@@ -6,3 +6,7 @@ ul {
     display: flex;
     justify-content: space-between;
 }
+
+.comment-trashcan {
+    cursor: pointer;
+}
