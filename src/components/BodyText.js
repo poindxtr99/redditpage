@@ -8,10 +8,10 @@ const BodyText = (props) => {
         return <span key={key}>{item}<br/></span>
     });
     return (
-        <Segment className="main-body" secondary='true'>
+        <Segment className="main-body" secondary='true' padded='true'>
             <div>{formattedText}</div>
             <Header size='tiny'>
-                <Icon name='comment alternate' />
+                <Icon flipped='horizontally' name='comment alternate' />
                 <Header.Content>{`${props.commentCount} Comments`}</Header.Content>
             </Header>
         </Segment>
