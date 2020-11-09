@@ -33,10 +33,10 @@ class PageHeader extends React.Component {
     render() {
         return (
             <div>
-                <Header floated='left' size='small'>
+                <Header sub='true' floated='left' size='medium'>
                     {this.formatScore()}
                 </Header>
-                <Header>
+                <Header size='large'>
                     {this.props.title}
                 </Header>
             </div>

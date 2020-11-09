@@ -1,3 +1,4 @@
+import './styles/app.css';
 import CommentList from './CommentList';
 import BodyText from './BodyText';
 import PageHeader from './PageHeader';
@@ -72,7 +73,7 @@ class App extends Component {
     render(){
         return (
             <Container>
-                <Header size='tiny'>{this.state.pageTitle}</Header>
+                <div className="reddit-text">{this.state.pageTitle}</div>
                 <PageHeader title={this.state.title} score={this.state.score}/>
                 <Container>
                     <Segment>

@@ -10,3 +10,7 @@ ul {
 .comment-trashcan {
     cursor: pointer;
 }
+
+.comment-list {
+    padding-left: 10px !important;
+}

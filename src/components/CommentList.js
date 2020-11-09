@@ -1,3 +1,4 @@
+import './styles/comments.css';
 import Comment from './Comment';
 import React from 'react';
 import { Container, List } from 'semantic-ui-react';
@@ -8,7 +9,7 @@ const CommentList = ({comments, onTrashClick}) => {
     });
 
     return (
-        <List>
+        <List className="comment-list">
             <Container>
                 {commentsList}
             </Container>

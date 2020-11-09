@@ -8,7 +8,7 @@ const BodyText = (props) => {
         return <span key={key}>{item}<br/></span>
     });
     return (
-        <Segment className="main-body">
+        <Segment className="main-body" secondary='true' padded='very'>
             <div>{formattedText}</div>
             <Header size='tiny'>
                 <Icon name='comment alternate' />
