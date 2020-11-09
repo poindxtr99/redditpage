@@ -1,6 +1,6 @@
 import './styles/pageheader.css';
 import React from 'react';
-import { Header } from 'semantic-ui-react';
+import { Header, List } from 'semantic-ui-react';
 
 
 class PageHeader extends React.Component {
@@ -32,13 +32,19 @@ class PageHeader extends React.Component {
 
     render() {
         return (
-            <div>
-                <Header sub='true' floated='left' size='medium'>
-                    {this.formatScore()}
-                </Header>
-                <Header size='large'>
-                    {this.props.title}
-                </Header>
+            <div className='page-title'>
+                <List horizontal>
+                    <List.Item>
+                        <Header sub='true' size='huge'>
+                            {this.formatScore()}
+                        </Header>
+                    </List.Item>
+                    <List.Item>
+                        <Header size='large'>
+                            {this.props.title}
+                        </Header>
+                    </List.Item>
+                </List>
             </div>
         );
     }

@@ -5,11 +5,11 @@ export const FormatScore = (score) => {
         return score.toString();
     }
     else if (scoreLength < 7) {
-        dotScore = score / 1000;
+        dotScore = (score / 1000).toFixed(2);
         return `${dotScore}k`;
     }
     else {
-        dotScore = score / 1000000;
+        dotScore = (score / 1000000).toFixed(2);
         return `${dotScore}M`;
     }
 }

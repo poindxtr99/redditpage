@@ -73,8 +73,10 @@ class App extends Component {
     render(){
         return (
             <Container>
-                <div className="reddit-text">{this.state.pageTitle}</div>
-                <PageHeader title={this.state.title} score={this.state.score}/>
+                <div className="top-grouping">
+                    <div className="reddit-text">{this.state.pageTitle}</div>
+                    <PageHeader title={this.state.title} score={this.state.score}/>
+                </div>
                 <Container>
                     <Segment>
                         <BodyText mainText={this.state.mainText} commentCount={this.state.commentCount}/>
