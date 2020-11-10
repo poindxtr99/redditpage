@@ -1,7 +1,17 @@
+.app-page {
+    background: #F9F9F9;
+}
+
 .reddit-text {
     padding-top: 20px;
+    color: gray;
 }
 
 .top-grouping {
     margin-left: 20px;
+}
+
+.main-segment {
+    border: none !important;
+    color: gray;
 }

@@ -77,8 +77,8 @@ class App extends Component {
                     <div className="reddit-text">{this.state.pageTitle}</div>
                     <PageHeader title={this.state.title} score={this.state.score}/>
                 </div>
-                <Container>
-                    <Segment>
+                <Container className="app-body">
+                    <Segment className="main-segment">
                         <BodyText mainText={this.state.mainText} commentCount={this.state.commentCount}/>
                         <CommentList comments={this.state.comments} onTrashClick={this.deleteComment} />
                     </Segment>

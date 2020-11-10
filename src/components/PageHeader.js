@@ -35,7 +35,7 @@ class PageHeader extends React.Component {
             <div className='page-title'>
                 <List horizontal>
                     <List.Item>
-                        <Header sub='true' size='huge'>
+                        <Header size='medium'>
                             {this.formatScore()}
                         </Header>
                     </List.Item>

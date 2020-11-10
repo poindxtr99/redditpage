@@ -1,6 +1,6 @@
 import CommentList from './CommentList';
 import './styles/comments.css';
-import { FormatScore } from './methods';
+import { FormatScore, FormattedText } from './methods';
 import React, {Component} from 'react';
 import { List } from 'semantic-ui-react';
 
@@ -18,23 +18,29 @@ class Comment extends Component {
     }
 
     timeSince = (postTime) => {
-        var timeStamp = new Date(postTime);
-        var now = new Date();
-        const secondsPast = (now.getTime() - timeStamp) / 1000;
+        var timeStamp = new Date(postTime * 1000).getTime();
+        var now = Date.now();
+        const secondsPast = (now - timeStamp) / 1000;
         if (secondsPast < 60) {
-            return parseInt(secondsPast) + 's';
+            return parseInt(secondsPast) + 'second(s) ago';
         }
         if (secondsPast < 3600) {
-            return parseInt(secondsPast / 60) + 'm';
+            return parseInt(secondsPast / 60) + 'minute(s) ago';
         }
         if (secondsPast <= 86400) {
-            return parseInt(secondsPast / 3600) + 'h';
+            return parseInt(secondsPast / 3600) + 'hour(s) ago';
         }
         if (secondsPast > 86400) {
-            const day = timeStamp.getDate();
-            const month = timeStamp.toDateString().match(/ [a-zA-Z]*/)[0].replace(" ", "");
-            const year = timeStamp.getFullYear() == now.getFullYear() ? "" : " " + timeStamp.getFullYear();
-            return day + " " + month + year;
+            const day = parseInt(secondsPast / 86400);
+            if (day > 31) {
+                const month = parseInt(day / 31);
+                if (month > 11) {
+                    const year = parseInt(month / 12);
+                    return `${ year } year(s) ago`;
+                }
+                return `${ month }month(s) ago`;
+            }
+            return `${ day } day(s) ago`;
         }
     }
 
@@ -45,14 +51,14 @@ class Comment extends Component {
                     <div>
                         <List horizontal>
                             <List.Item as='a'>{this.props.data.author}</List.Item>
-                            <List.Item>{`${FormatScore(this.props.data.ups)} points - ${this.timeSince(this.props.data.created_utc)}`}</List.Item>
+                            <List.Item className="comment-score-time">{`${FormatScore(this.props.data.ups)} points - ${this.timeSince(this.props.data.created_utc)}`}</List.Item>
                         </List>
                         <span style={{float:'right', color:'black'}}>
                             <List.Icon onClick={() => this.props.onTrashClick(this.props.data.id)} name="trash" className="comment-trashcan" />
                         </span>
                     </div>
 
-                    <List.Description>{this.props.data.body}</List.Description>
+                    <List.Description>{FormattedText(this.props.data.body)}</List.Description>
                     <List.List>
                         <CommentList comments={this.state.comments} onTrashClick={this.deleteComment} />
                     </List.List>
