@@ -78,9 +78,11 @@ class App extends Component {
                     <PageHeader title={this.state.title} score={this.state.score}/>
                 </div>
                 <Container className="app-body">
-                    <Segment className="main-segment">
+                    <Segment className="main-segment" padded='true'>
                         <BodyText mainText={this.state.mainText} commentCount={this.state.commentCount}/>
-                        <CommentList comments={this.state.comments} onTrashClick={this.deleteComment} />
+                        <div className="app-comments">
+                            <CommentList comments={this.state.comments} onTrashClick={this.deleteComment} />
+                        </div>
                     </Segment>
                 </Container>
             </Container>
