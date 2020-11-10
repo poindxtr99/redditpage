@@ -59,7 +59,7 @@ class Comment extends Component {
                     </div>
 
                     <List.Description>{FormattedText(this.props.data.body)}</List.Description>
-                    <List.List>
+                    <List.List className={Object.keys(this.state.comments).length === 0 ? "comments-hidden" : "comment-list"}>
                         <CommentList comments={this.state.comments} onTrashClick={this.deleteComment} />
                     </List.List>
                 </List.Content>

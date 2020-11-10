@@ -9,7 +9,7 @@ const CommentList = ({comments, onTrashClick}) => {
     });
 
     return (
-        <List className="comment-list">
+        <List className="commentlist">
             <Container>
                 {commentsList}
             </Container>

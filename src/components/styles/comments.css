@@ -18,6 +18,18 @@ ul {
 }
 
 .comment-list {
+    border-left: #eaecee;
+    border-top: none !important;
+    border-bottom: none !important;
+    border-right: none !important;
+    border-style: solid;
+}
+
+.comments-hidden {
+    border: none;
+}
+
+.commentlist {
     padding-left: 10px !important;
     margin-left: 20px !important;
 }
