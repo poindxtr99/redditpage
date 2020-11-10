@@ -13,7 +13,6 @@ class Comment extends Component {
     deleteComment = (id) => {
         let updatedChildren = this.state.comments;
         delete updatedChildren[id];
-        this.setState({comments:updatedChildren})
         this.setState({comments:updatedChildren});
     }
 
@@ -51,15 +50,23 @@ class Comment extends Component {
                     <div>
                         <List horizontal>
                             <List.Item as='a'>{this.props.data.author}</List.Item>
-                            <List.Item className="comment-score-time">{`${FormatScore(this.props.data.ups)} points - ${this.timeSince(this.props.data.created_utc)}`}</List.Item>
+                            <List.Item className="comment-score-time">{
+                                    `${FormatScore(this.props.data.ups)} points - 
+                                    ${this.timeSince(this.props.data.created_utc)}`
+                                }
+                            </List.Item>
                         </List>
                         <span style={{float:'right', color:'black'}}>
-                            <List.Icon onClick={() => this.props.onTrashClick(this.props.data.id)} name="trash" className="comment-trashcan" />
+                            <List.Icon onClick={() => this.props.onTrashClick(this.props.data.id)} 
+                                name="trash" className="comment-trashcan" />
                         </span>
                     </div>
 
                     <List.Description>{FormattedText(this.props.data.body)}</List.Description>
-                    <List.List className={Object.keys(this.state.comments).length === 0 ? "comments-hidden" : "comment-list"}>
+                    <List.List className={
+                            Object.keys(this.state.comments).length === 0 ? 
+                            "comments-hidden" : "comment-list"
+                        }>
                         <CommentList comments={this.state.comments} onTrashClick={this.deleteComment} />
                     </List.List>
                 </List.Content>
